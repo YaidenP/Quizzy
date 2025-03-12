@@ -2,8 +2,10 @@ body{
     padding: 0;
     margin: 0;
     background-image: url('images/image.png');
-    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
     font-family: "Barlow", sans-serif;
     font-weight: 100;
     font-style: normal;
