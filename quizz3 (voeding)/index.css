@@ -4,6 +4,9 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .header{
@@ -28,7 +31,14 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 200px; /* Adjust as needed */
+    padding: 20px; /* Add padding to create space around the content */
+    position: relative;
+    z-index: 1;
+    background-color: lightgreen; /* Add a light yellow background */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    width: auto; /* Adjust width to fit content */
+    max-width: 90%; /* Ensure it doesn't exceed the container width */
+    margin: 20px auto; /* Center horizontally with margin */
 }
 
 .antwoorden{
@@ -44,6 +54,7 @@ body{
     display: flex;
     justify-content: space-around; /* Center horizontally */
     align-items: center; /* Center vertically */
+    
 }
 
 .ant1, .ant2, .ant3{
@@ -56,6 +67,14 @@ body{
     background-color: limegreen;
     margin-top: 20px;
     border-radius: 15px;
+    font-size: 20px;
+    font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.ant1, .ant2, .ant3:hover{
+cursor: pointer;
 }
 
 .open-answer {
@@ -75,6 +94,9 @@ body{
     justify-content: center;
     height: 100%; /* Full height */
     text-align: center;
+    font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: italic;
 }
 
 .incorrect-answers {
@@ -85,4 +107,70 @@ body{
 
 .multiple-choice-answers, .open-answers {
     width: 45%;
+}
+
+.hButton, .infoButton {
+    background-color: green;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.hButton {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+}
+
+.previousButton {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    background-color: green;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.infoButton {
+    position: absolute;
+    left: 120px; /* Adjusted to be next to the home button */
+    top: 20px;
+}
+
+.question-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Ensure the background does not repeat */
+    width: 100%;
+    height: 60vh; /* Reduce the height */
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.results-background {
+    background-image: url('images/trofee.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Ensure the background stays fixed */
+    height: 100vh;
+}
+
+.custom-results-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensure the background stays fixed */
+    opacity: 0.8; /* Adjust opacity if needed */
+    height: 100vh;
 }
