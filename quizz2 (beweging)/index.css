@@ -7,14 +7,16 @@ body{
     font-family: "Barlow", sans-serif;
     font-weight: 300;
     font-style: italic;
-    background-color: #f0f8e2; /* Light green background */
+    background-image: url('images/beweging-background.jpg'); /* Set the background image */
+    background-size: cover;
+    background-position: center;
     transition: background-color 0.5s ease-in-out; /* Smooth transition for background color */
 }
 
 .header{
     width: 98%;
     height: 80px;
-    background-color: darkgreen;
+    background-color: darkblue;
     position: sticky;
     position: -webkit-sticky;
     left: 0;
@@ -37,7 +39,7 @@ body{
     padding: 20px; /* Add padding to create space around the content */
     position: relative;
     z-index: 1;
-    background-color: lightgreen; /* Add a light yellow background */
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
     border-radius: 10px; /* Optional: Add rounded corners */
     width: auto; /* Adjust width to fit content */
     max-width: 90%; /* Ensure it doesn't exceed the container width */
@@ -53,7 +55,7 @@ body{
     margin: 0 auto;
     border-radius: 15px;
     margin-bottom: 15px;
-    background-color: lightgreen;
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
     margin-top: auto;
     display: flex;
     justify-content: space-around; /* Center horizontally */
@@ -68,7 +70,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: limegreen;
+    background-color: skyblue;
     margin-top: 20px;
     border-radius: 15px;
     font-size: 20px;
@@ -80,7 +82,7 @@ body{
 
 .answer-button:hover {
     cursor: pointer;
-    background-color: #32a852; /* Darker green on hover */
+    background-color: #007bb5; /* Darker blue on hover */
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
@@ -91,12 +93,12 @@ body{
     margin-top: 20px;
     border-radius: 15px;
     border: 1px solid #ccc;
-    background-color: limegreen;
+    background-color: skyblue;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for background color and transform */
 }
 
 .open-answer:hover {
-    background-color: #32a852; /* Darker green on hover */
+    background-color: #007bb5; /* Darker blue on hover */
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
@@ -124,7 +126,7 @@ body{
 }
 
 .hButton, .infoButton {
-    background-color: green;
+    background-color: darkblue;
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
@@ -145,7 +147,7 @@ body{
     position: absolute;
     right: 15px;
     top: 20px;
-    background-color: green;
+    background-color: darkblue;
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
@@ -157,7 +159,7 @@ body{
 }
 
 .hButton:hover, .infoButton:hover, .previousButton:hover {
-    background-color: #32a852; /* Darker green on hover */
+    background-color: #007bb5; /* Darker blue on hover */
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 

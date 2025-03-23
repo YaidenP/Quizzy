@@ -1,19 +1,19 @@
 const questions = [
-    { question: "Waarom is het belangrijk om een gezond ontbijt te eten?", answers: ["Omdat je dan sneller afvalt", "Omdat je dan geen honger hebt voor de lunch", "Omdat het je energie geeft voor de rest van de dag"], correct: 2, background: "url('images/ontbijt.png')" },
-    { question: "Welke snack is het beste voor een boost van energie tijdens het studeren?", answers: ["Een zak chips", "Een appel met pindakaas", "Een frisdrank"], correct: 1, background: "url('images/snack.jpg')" },
-    { question: "Wat is een gezonde bron van eiwitten voor vegetariërs?", answers: ["Zalm", "Amandelen", "Vlees"], correct: 1, background: "url('images/protein.jpg')" },
-    { question: "Wat kan het gevolg zijn van te veel suiker drinken, zoals in frisdrank?", answers: ["Je krijgt meer energie", "Je kunt aankomen in gewicht en je kans op diabetes vergroten", "Je spieren groeien sneller"], correct: 1, background: "url('images/sugar.jpg')" },
-    { question: "Welke van de volgende is een gezond alternatief voor frisdrank?", answers: ["Smoothie van vers fruit", "Suikervrije energie drank", "Icetea met veel suiker"], correct: 0, background: "url('images/smoothie.jpg')" },
-    { question: "Wat is een voorbeeld van een gezonde lunch voor op school?", answers: ["Een witbrood sandwich met veel mayo en vlees", "Een bak chips en een cola", "Een volkorenbrood sandwich met kipfilet, avocado en groenten"], correct: 2, background: "url('images/lunch.jpg')" },
-    { question: "Wat is het belangrijkste voordeel van het eten van groenten?", answers: ["Ze geven je een snelle energieboost", "Ze zijn goed voor je huid en helpen bij de spijsvertering", "Ze maken je dik"], correct: 1, background: "url('images/vegetables.jpg')" },
-    { question: "Hoeveel water moet je gemiddeld per dag drinken?", answers: ["2 liter", "4 liter", "1 liter"], correct: 0, background: "url('images/water.jpg')" },
-    { question: "Wat is een mogelijke reactie van je lichaam op te veel junkfood?", answers: ["Verbeterde concentratie", "Snelle spiergroei", "Minder energie en moeite met concentreren"], correct: 2, background: "url('images/junkfood.jpg')" },
-    { question: "Welke van de volgende voedingsmiddelen bevat veel gezonde vetten?", answers: ["Gekookte kip", "Avocado", "Patat"], correct: 1, background: "url('images/healthy-fats.jpg')" },
-    { question: "Open Question 1?", answers: [], correct: "Correct Answer 1", background: "url('images/open1.jpg')" },
-    { question: "Open Question 2?", answers: [], correct: "Correct Answer 2", background: "url('images/open2.jpg')" },
-    { question: "Open Question 3?", answers: [], correct: "Correct Answer 3", background: "url('images/open3.jpg')" },
-    { question: "Open Question 4?", answers: [], correct: "Correct Answer 4", background: "url('images/open4.jpg')" },
-    { question: "Open Question 5?", answers: [], correct: "Correct Answer 5", background: "url('images/open5.jpg')" }
+    { question: "Waarom is het belangrijk om regelmatig een arts te bezoeken?", answers: ["Om ziektes vroegtijdig te ontdekken", "Om medicijnen te krijgen", "Om je gewicht te controleren"], correct: 0 },
+    { question: "Welke van de volgende is een gezonde gewoonte?", answers: ["Roken", "Dagelijks sporten", "Veel suiker eten"], correct: 1 },
+    { question: "Hoeveel uur slaap heb je gemiddeld per nacht nodig?", answers: ["4-5 uur", "6-7 uur", "7-9 uur"], correct: 2 },
+    { question: "Wat is een goede manier om stress te verminderen?", answers: ["Alcohol drinken", "Meditatie", "Langdurig werken"], correct: 1 },
+    { question: "Welke van de volgende voedingsmiddelen is goed voor je hart?", answers: ["Gefrituurd eten", "Groenten en fruit", "Suikerrijke snacks"], correct: 1 },
+    { question: "Wat is een voordeel van regelmatig handen wassen?", answers: ["Het voorkomt infecties", "Het maakt je huid droog", "Het vermindert jeuk"], correct: 0 },
+    { question: "Hoe vaak moet je je tanden poetsen?", answers: ["Een keer per dag", "Twee keer per dag", "Een keer per week"], correct: 1 },
+    { question: "Wat is een goede manier om gehydrateerd te blijven?", answers: ["Veel koffie drinken", "Veel water drinken", "Veel frisdrank drinken"], correct: 1 },
+    { question: "Wat is een voordeel van een gezonde voeding?", answers: ["Meer energie", "Gewichtstoename", "Slechtere huid"], correct: 0 },
+    { question: "Welke van de volgende is een teken van een goede mentale gezondheid?", answers: ["Chronische stress", "Positieve relaties", "Slaapproblemen"], correct: 1 },
+    { question: "Open Question 1?", answers: [], correct: "Correct Answer 1" },
+    { question: "Open Question 2?", answers: [], correct: "Correct Answer 2" },
+    { question: "Open Question 3?", answers: [], correct: "Correct Answer 3" },
+    { question: "Open Question 4?", answers: [], correct: "Correct Answer 4" },
+    { question: "Open Question 5?", answers: [], correct: "Correct Answer 5" }
 ];
 
 let currentQuestionIndex = 0;
@@ -25,7 +25,7 @@ function showQuestion(index) {
     const answersContainer = document.querySelectorAll('.antwoorden button');
     const question = questions[index];
     questionContainer.innerHTML = `<h2>Vraag ${index + 1}: ${question.question}</h2>`;
-    document.body.style.backgroundImage = question.background; // Set the background image of the entire page
+    // document.body.style.backgroundImage = 'url("images/gezondheid-background.jpg")'; // Remove the background image setting
     if (question.answers.length > 0) {
         question.answers.forEach((answer, i) => {
             answersContainer[i].textContent = answer;
@@ -42,7 +42,7 @@ function showQuestion(index) {
         openAnswerInput.style.height = '40px';
         openAnswerInput.style.marginTop = '20px';
         openAnswerInput.style.borderRadius = '15px';
-        openAnswerInput.style.backgroundColor = 'limegreen';
+        openAnswerInput.style.backgroundColor = 'crimson';
         document.querySelector('.antwoorden').appendChild(openAnswerInput);
     }
 }
@@ -156,5 +156,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.querySelector('.previousButton').addEventListener('click', previousQuestion);
 });
-
-
