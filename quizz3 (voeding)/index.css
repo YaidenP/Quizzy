@@ -1,4 +1,4 @@
-body{
+body {
     padding: 0;
     margin: 0;
     display: flex;
@@ -7,14 +7,18 @@ body{
     font-family: "Barlow", sans-serif;
     font-weight: 300;
     font-style: italic;
-    background-color: #f0f8e2; /* Light green background */
-    transition: background-color 0.5s ease-in-out; /* Smooth transition for background color */
+    /* background-color: #f0f8e2; */
+    /* background-image: url('images/question-background.jpg'); */
+    background: radial-gradient(circle, #a8e063 10px, transparent 10px), radial-gradient(circle, #56ab2f 10px, transparent 10px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    transition: background 0.5s ease-in-out; /* Smooth transition for background */
 }
 
-.header{
+.header {
     width: 98%;
     height: 80px;
-    background-color: darkgreen;
+    background-color: rgba(0, 100, 0, 0.8); /* Dark green with opacity */
     position: sticky;
     position: -webkit-sticky;
     left: 0;
@@ -37,7 +41,7 @@ body{
     padding: 20px; /* Add padding to create space around the content */
     position: relative;
     z-index: 1;
-    background-color: lightgreen; /* Add a light yellow background */
+    background-color: rgba(144, 238, 144, 0.8); /* Light green with opacity */
     border-radius: 10px; /* Optional: Add rounded corners */
     width: auto; /* Adjust width to fit content */
     max-width: 90%; /* Ensure it doesn't exceed the container width */
@@ -45,7 +49,7 @@ body{
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for background color and transform */
 }
 
-.antwoorden{
+.antwoorden {
     width: 90%;
     height: 350px;
     left: 0;
@@ -53,7 +57,7 @@ body{
     margin: 0 auto;
     border-radius: 15px;
     margin-bottom: 15px;
-    background-color: lightgreen;
+    background-color: rgba(144, 238, 144, 0.8); /* Light green with opacity */
     margin-top: auto;
     display: flex;
     justify-content: space-around; /* Center horizontally */
@@ -180,13 +184,13 @@ body{
 }
 
 .results-background {
-    background-image: url('images/trofee.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-image: url('images/results-background.jpg'); */
+    background: radial-gradient(circle, #56ab2f 10px, transparent 10px), radial-gradient(circle, #a8e063 10px, transparent 10px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
     background-attachment: fixed; /* Ensure the background stays fixed */
     height: 100vh;
-    transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
+    transition: background 0.5s ease-in-out; /* Smooth transition for background */
 }
 
 .custom-results-background {
@@ -196,5 +200,5 @@ body{
     background-attachment: fixed; /* Ensure the background stays fixed */
     opacity: 0.8; /* Adjust opacity if needed */
     height: 100vh;
-    transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
+    transition: background 0.5s ease-in-out; /* Smooth transition for background */
 }

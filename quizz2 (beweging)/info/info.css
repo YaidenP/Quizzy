@@ -53,7 +53,7 @@ header nav {
 section {
     padding: 20px;
     margin: 20px 0;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8); /* White with opacity */
 }
 
 footer {

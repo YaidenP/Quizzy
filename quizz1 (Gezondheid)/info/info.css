@@ -2,7 +2,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffebee; /* Light red background */
+    background: linear-gradient(135deg, #f4b6b8 25%, #f08b8d 25%, #f08b8d 50%, #f4b6b8 50%, #f4b6b8 75%, #f08b8d 75%, #f08b8d);
+    background-size: cover; /* Ensure the background covers the entire area */
+    background-attachment: fixed; /* Ensure the background stays fixed */
+    background-position: center; /* Center the background */
 }
 
 .container {
@@ -53,7 +56,7 @@ header nav {
 section {
     padding: 20px;
     margin: 20px 0;
-    background: #ffffff; /* White background */
+    background: rgba(255, 255, 255, 0.8); /* White with opacity */
 }
 
 footer {

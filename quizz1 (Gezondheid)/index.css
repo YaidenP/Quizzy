@@ -16,12 +16,11 @@ body{
     font-family: "Barlow", sans-serif;
     font-weight: 300;
     font-style: italic;
-    background-color: #ffebee; /* Light red background */
-    transition: background-color 0.5s ease-in-out; /* Smooth transition for background color */
-    background: linear-gradient(135deg, #ffebee 25%, #ffcdd2 25%, #ffcdd2 50%, #ffebee 50%, #ffebee 75%, #ffcdd2 75%, #ffcdd2);
+    background: linear-gradient(135deg, #f4b6b8 25%, #f08b8d 25%, #f08b8d 50%, #f4b6b8 50%, #f4b6b8 75%, #f08b8d 75%, #f08b8d);
     background-size: cover; /* Ensure the background covers the entire area */
     background-attachment: fixed; /* Ensure the background stays fixed */
     background-position: center; /* Center the background */
+    transition: background-color 0.5s ease-in-out; /* Smooth transition for background color */
 }
 
 .header{
@@ -198,26 +197,14 @@ body{
     transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
 }
 
-.results-background {
-    background: linear-gradient(135deg, #ffebee 25%, #ffcdd2 25%, #ffcdd2 50%, #ffebee 50%, #ffebee 75%, #ffcdd2 75%, #ffcdd2); /* Same background as the rest */
-    background-size: 56.57px 56.57px; /* Ensure the background covers the entire area */
+.results-background, .custom-results-background {
+    background: linear-gradient(135deg, #f4b6b8 25%, #f08b8d 25%, #f08b8d 50%, #f4b6b8 50%, #f4b6b8 75%, #f08b8d 75%, #f08b8d);
+    background-size: cover; /* Ensure the background covers the entire area */
     background-position: center; /* Center the background */
     background-repeat: no-repeat; /* Ensure the background does not repeat */
     min-height: 100vh; /* Ensure it covers the entire viewport height */
     transition: background 0.5s ease-in-out; /* Smooth transition for background */
     width: 100%; /* Ensure it covers the entire width */
     height: 100vh; /* Ensure it covers the entire viewport height */
-}
-
-.custom-results-background {
-    background: linear-gradient(135deg, #ffebee 25%, #ffcdd2 25%, #ffcdd2 50%, #ffebee 50%, #ffebee 75%, #ffcdd2 75%, #ffcdd2); /* Same background as the rest */
-    background-size: 56.57px 56.57px; /* Ensure the background covers the entire area */
-    background-position: center; /* Center the background */
-    background-repeat: no-repeat; /* Ensure the background does not repeat */
-    opacity: 0.7; /* Slightly more transparent */
-    min-height: 100vh; /* Ensure it covers the entire viewport height */
-    transition: background 0.5s ease-in-out; /* Smooth transition for background */
-    width: 100%; /* Ensure it covers the entire width */
-    height: 100vh; /* Ensure it covers the entire viewport height */
-    background-attachment: scroll; /* Ensure the background scrolls with the content */
+    background-attachment: fixed; /* Ensure the background stays fixed */
 }

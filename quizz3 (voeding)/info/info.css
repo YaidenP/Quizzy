@@ -2,7 +2,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    /* background-image: url('../images/info-background.jpg'); */
+    background: radial-gradient(circle, #a8e063 10px, transparent 10px), radial-gradient(circle, #56ab2f 10px, transparent 10px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
 }
 
 .container {
@@ -12,7 +16,7 @@ body {
 }
 
 header {
-    background: darkgreen;
+    background: rgba(0, 100, 0, 0.8); /* Dark green with opacity */
     color: #fff;
     padding-top: 30px;
     min-height: 70px;
@@ -53,7 +57,7 @@ header nav {
 section {
     padding: 20px;
     margin: 20px 0;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8); /* White with opacity */
 }
 
 footer {

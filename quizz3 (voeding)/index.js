@@ -1,19 +1,19 @@
 const questions = [
-    { question: "Waarom is het belangrijk om een gezond ontbijt te eten?", answers: ["Omdat je dan sneller afvalt", "Omdat je dan geen honger hebt voor de lunch", "Omdat het je energie geeft voor de rest van de dag"], correct: 2, background: "url('images/ontbijt.png')" },
-    { question: "Welke snack is het beste voor een boost van energie tijdens het studeren?", answers: ["Een zak chips", "Een appel met pindakaas", "Een frisdrank"], correct: 1, background: "url('images/snack.jpg')" },
-    { question: "Wat is een gezonde bron van eiwitten voor vegetariërs?", answers: ["Zalm", "Amandelen", "Vlees"], correct: 1, background: "url('images/protein.jpg')" },
-    { question: "Wat kan het gevolg zijn van te veel suiker drinken, zoals in frisdrank?", answers: ["Je krijgt meer energie", "Je kunt aankomen in gewicht en je kans op diabetes vergroten", "Je spieren groeien sneller"], correct: 1, background: "url('images/sugar.jpg')" },
-    { question: "Welke van de volgende is een gezond alternatief voor frisdrank?", answers: ["Smoothie van vers fruit", "Suikervrije energie drank", "Icetea met veel suiker"], correct: 0, background: "url('images/smoothie.jpg')" },
-    { question: "Wat is een voorbeeld van een gezonde lunch voor op school?", answers: ["Een witbrood sandwich met veel mayo en vlees", "Een bak chips en een cola", "Een volkorenbrood sandwich met kipfilet, avocado en groenten"], correct: 2, background: "url('images/lunch.jpg')" },
-    { question: "Wat is het belangrijkste voordeel van het eten van groenten?", answers: ["Ze geven je een snelle energieboost", "Ze zijn goed voor je huid en helpen bij de spijsvertering", "Ze maken je dik"], correct: 1, background: "url('images/vegetables.jpg')" },
-    { question: "Hoeveel water moet je gemiddeld per dag drinken?", answers: ["2 liter", "4 liter", "1 liter"], correct: 0, background: "url('images/water.jpg')" },
-    { question: "Wat is een mogelijke reactie van je lichaam op te veel junkfood?", answers: ["Verbeterde concentratie", "Snelle spiergroei", "Minder energie en moeite met concentreren"], correct: 2, background: "url('images/junkfood.jpg')" },
-    { question: "Welke van de volgende voedingsmiddelen bevat veel gezonde vetten?", answers: ["Gekookte kip", "Avocado", "Patat"], correct: 1, background: "url('images/healthy-fats.jpg')" },
-    { question: "Open Question 1?", answers: [], correct: "Correct Answer 1", background: "url('images/open1.jpg')" },
-    { question: "Open Question 2?", answers: [], correct: "Correct Answer 2", background: "url('images/open2.jpg')" },
-    { question: "Open Question 3?", answers: [], correct: "Correct Answer 3", background: "url('images/open3.jpg')" },
-    { question: "Open Question 4?", answers: [], correct: "Correct Answer 4", background: "url('images/open4.jpg')" },
-    { question: "Open Question 5?", answers: [], correct: "Correct Answer 5", background: "url('images/open5.jpg')" }
+    { question: "Waarom is het belangrijk om een gezond ontbijt te eten?", answers: ["Omdat je dan sneller afvalt", "Omdat je dan geen honger hebt voor de lunch", "Omdat het je energie geeft voor de rest van de dag"], correct: 2 },
+    { question: "Welke snack is het beste voor een boost van energie tijdens het studeren?", answers: ["Een zak chips", "Een appel met pindakaas", "Een frisdrank"], correct: 1 },
+    { question: "Wat is een gezonde bron van eiwitten voor vegetariërs?", answers: ["Zalm", "Amandelen", "Vlees"], correct: 1 },
+    { question: "Wat kan het gevolg zijn van te veel suiker drinken, zoals in frisdrank?", answers: ["Je krijgt meer energie", "Je kunt aankomen in gewicht en je kans op diabetes vergroten", "Je spieren groeien sneller"], correct: 1 },
+    { question: "Welke van de volgende is een gezond alternatief voor frisdrank?", answers: ["Smoothie van vers fruit", "Suikervrije energie drank", "Icetea met veel suiker"], correct: 0 },
+    { question: "Wat is een voorbeeld van een gezonde lunch voor op school?", answers: ["Een witbrood sandwich met veel mayo en vlees", "Een bak chips en een cola", "Een volkorenbrood sandwich met kipfilet, avocado en groenten"], correct: 2 },
+    { question: "Wat is het belangrijkste voordeel van het eten van groenten?", answers: ["Ze geven je een snelle energieboost", "Ze zijn goed voor je huid en helpen bij de spijsvertering", "Ze maken je dik"], correct: 1 },
+    { question: "Hoeveel water moet je gemiddeld per dag drinken?", answers: ["2 liter", "4 liter", "1 liter"], correct: 0 },
+    { question: "Wat is een mogelijke reactie van je lichaam op te veel junkfood?", answers: ["Verbeterde concentratie", "Snelle spiergroei", "Minder energie en moeite met concentreren"], correct: 2 },
+    { question: "Welke van de volgende voedingsmiddelen bevat veel gezonde vetten?", answers: ["Gekookte kip", "Avocado", "Patat"], correct: 1 },
+    { question: "Wat zijn de voordelen van het eten van volkoren producten?", answers: [], correct: "Ze bevatten meer vezels en voedingsstoffen dan geraffineerde producten" },
+    { question: "Waarom is het belangrijk om voldoende water te drinken?", answers: [], correct: "Water helpt bij de spijsvertering, het reguleren van de lichaamstemperatuur en het transporteren van voedingsstoffen" },
+    { question: "Noem een paar gezonde bronnen van vetten.", answers: [], correct: "Avocado, noten, zaden, olijfolie" },
+    { question: "Wat zijn de nadelen van het consumeren van te veel bewerkte voedingsmiddelen?", answers: [], correct: "Ze kunnen leiden tot gewichtstoename, hoge bloeddruk en een verhoogd risico op chronische ziekten" },
+    { question: "Waarom is het belangrijk om een gevarieerd dieet te hebben?", answers: [], correct: "Een gevarieerd dieet zorgt ervoor dat je alle benodigde voedingsstoffen binnenkrijgt" }
 ];
 
 let currentQuestionIndex = 0;
@@ -25,7 +25,7 @@ function showQuestion(index) {
     const answersContainer = document.querySelectorAll('.antwoorden button');
     const question = questions[index];
     questionContainer.innerHTML = `<h2>Vraag ${index + 1}: ${question.question}</h2>`;
-    document.body.style.backgroundImage = question.background; // Set the background image of the entire page
+    // document.body.style.backgroundImage = question.background; // Remove the background image setting
     if (question.answers.length > 0) {
         question.answers.forEach((answer, i) => {
             answersContainer[i].textContent = answer;
@@ -37,7 +37,7 @@ function showQuestion(index) {
         const openAnswerInput = document.createElement('input');
         openAnswerInput.type = 'text';
         openAnswerInput.className = 'open-answer';
-        openAnswerInput.placeholder = 'Type your answer here';
+        openAnswerInput.placeholder = 'Voer hier je antwoord in';
         openAnswerInput.style.width = '60%';
         openAnswerInput.style.height = '40px';
         openAnswerInput.style.marginTop = '20px';
@@ -104,10 +104,10 @@ function showResults(customBackgroundImage) {
     document.body.classList.add('results-background');
     if (customBackgroundImage) {
         document.body.classList.add('custom-results-background');
-        document.body.style.backgroundImage = `url('${customBackgroundImage}')`;
+        document.body.style.background = `radial-gradient(circle, #56ab2f 10px, transparent 10px), radial-gradient(circle, #a8e063 10px, transparent 10px)`; // Use pattern with small circles
     } else {
         document.body.classList.remove('custom-results-background');
-        document.body.style.backgroundImage = '';
+        document.body.style.background = '';
     }
     document.querySelector('.vragen').style.display = 'none';
     document.querySelector('.antwoorden').style.display = 'none';
@@ -137,7 +137,7 @@ function showResults(customBackgroundImage) {
 
 function hideResults() {
     document.body.classList.remove('results-background', 'custom-results-background');
-    document.body.style.backgroundImage = '';
+    document.body.style.background = '';
     // ...existing code to hide results...
 }
 

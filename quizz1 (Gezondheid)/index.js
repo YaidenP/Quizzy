@@ -25,7 +25,10 @@ function showQuestion(index) {
     const answersContainer = document.querySelectorAll('.antwoorden button');
     const question = questions[index];
     questionContainer.innerHTML = `<h2>Vraag ${index + 1}: ${question.question}</h2>`;
-    document.body.style.backgroundImage = ''; // Remove the background image of the entire page
+    document.body.style.background = 'linear-gradient(135deg, #f4b6b8 25%, #f08b8d 25%, #f08b8d 50%, #f4b6b8 50%, #f4b6b8 75%, #f08b8d 75%, #f08b8d)';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundPosition = 'center';
     if (question.answers.length > 0) {
         question.answers.forEach((answer, i) => {
             answersContainer[i].textContent = answer;
@@ -37,7 +40,7 @@ function showQuestion(index) {
         const openAnswerInput = document.createElement('input');
         openAnswerInput.type = 'text';
         openAnswerInput.className = 'open-answer';
-        openAnswerInput.placeholder = 'Type your answer here';
+        openAnswerInput.placeholder = 'Voer hier je antwoord in';
         openAnswerInput.style.width = '60%';
         openAnswerInput.style.height = '40px';
         openAnswerInput.style.marginTop = '20px';
@@ -103,7 +106,10 @@ function previousQuestion() {
 function showResults(customBackgroundImage) {
     document.body.classList.add('results-background');
     document.body.classList.remove('custom-results-background');
-    document.body.style.backgroundImage = ''; // Remove the background image
+    document.body.style.background = 'linear-gradient(135deg, #f4b6b8 25%, #f08b8d 25%, #f08b8d 50%, #f4b6b8 50%, #f4b6b8 75%, #f08b8d 75%, #f08b8d)';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundPosition = 'center';
     document.querySelector('.vragen').style.display = 'none';
     document.querySelector('.antwoorden').style.display = 'none';
     document.querySelector('.previousButton').style.display = 'none'; // Hide the previous button

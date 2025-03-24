@@ -37,7 +37,7 @@ function showQuestion(index) {
         const openAnswerInput = document.createElement('input');
         openAnswerInput.type = 'text';
         openAnswerInput.className = 'open-answer';
-        openAnswerInput.placeholder = 'Type your answer here';
+        openAnswerInput.placeholder = 'Voer hier je antwoord in';
         openAnswerInput.style.width = '60%';
         openAnswerInput.style.height = '40px';
         openAnswerInput.style.marginTop = '20px';
