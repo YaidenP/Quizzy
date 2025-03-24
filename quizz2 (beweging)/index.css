@@ -1,22 +1,25 @@
-body{
+html, body {
     padding: 0;
     margin: 0;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     font-family: "Barlow", sans-serif;
     font-weight: 300;
     font-style: italic;
-    background-image: url('images/beweging-background.jpg'); /* Set the background image */
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(120deg, #e0f7fa, #0288d1); /* New gradient background */
+    background-attachment: fixed; /* Ensure the background stays fixed */
     transition: background-color 0.5s ease-in-out; /* Smooth transition for background color */
+}
+
+body {
+    flex: 1;
 }
 
 .header{
     width: 98%;
     height: 80px;
-    background-color: darkblue;
+    background-color: #0277bd; /* Dark blue */
     position: sticky;
     position: -webkit-sticky;
     left: 0;
@@ -39,7 +42,7 @@ body{
     padding: 20px; /* Add padding to create space around the content */
     position: relative;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+    background-color: #81d4fa; /* Light blue */
     border-radius: 10px; /* Optional: Add rounded corners */
     width: auto; /* Adjust width to fit content */
     max-width: 90%; /* Ensure it doesn't exceed the container width */
@@ -55,7 +58,7 @@ body{
     margin: 0 auto;
     border-radius: 15px;
     margin-bottom: 15px;
-    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+    background-color: #81d4fa; /* Light blue */
     margin-top: auto;
     display: flex;
     justify-content: space-around; /* Center horizontally */
@@ -70,7 +73,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: skyblue;
+    background-color: #0288d1; /* Blue */
     margin-top: 20px;
     border-radius: 15px;
     font-size: 20px;
@@ -82,7 +85,7 @@ body{
 
 .answer-button:hover {
     cursor: pointer;
-    background-color: #007bb5; /* Darker blue on hover */
+    background-color: #0277bd; /* Darker blue on hover */
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
@@ -93,12 +96,12 @@ body{
     margin-top: 20px;
     border-radius: 15px;
     border: 1px solid #ccc;
-    background-color: skyblue;
+    background-color: #0288d1; /* Blue */
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for background color and transform */
 }
 
 .open-answer:hover {
-    background-color: #007bb5; /* Darker blue on hover */
+    background-color: #0277bd; /* Darker blue on hover */
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
@@ -112,6 +115,8 @@ body{
     font-family: "Barlow", sans-serif;
     font-weight: 700;
     font-style: italic;
+    background: linear-gradient(120deg, #e0f7fa, #0288d1); /* Same gradient background */
+    background-attachment: fixed; /* Ensure the background stays fixed */
     transition: background-color 0.3s ease-in-out; /* Smooth transition for background color */
 }
 
@@ -126,7 +131,7 @@ body{
 }
 
 .hButton, .infoButton {
-    background-color: darkblue;
+    background-color: #0288d1; /* Blue */
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
@@ -147,7 +152,7 @@ body{
     position: absolute;
     right: 15px;
     top: 20px;
-    background-color: darkblue;
+    background-color: #0288d1; /* Blue */
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
@@ -159,7 +164,7 @@ body{
 }
 
 .hButton:hover, .infoButton:hover, .previousButton:hover {
-    background-color: #007bb5; /* Darker blue on hover */
+    background-color: #0277bd; /* Darker blue on hover */
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 

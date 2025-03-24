@@ -25,6 +25,7 @@ function showQuestion(index) {
     const answersContainer = document.querySelectorAll('.antwoorden button');
     const question = questions[index];
     questionContainer.innerHTML = `<h2>Vraag ${index + 1}: ${question.question}</h2>`;
+    document.body.style.backgroundImage = ''; // Remove the background image of the entire page
     if (question.answers.length > 0) {
         question.answers.forEach((answer, i) => {
             answersContainer[i].textContent = answer;
@@ -41,7 +42,7 @@ function showQuestion(index) {
         openAnswerInput.style.height = '40px';
         openAnswerInput.style.marginTop = '20px';
         openAnswerInput.style.borderRadius = '15px';
-        openAnswerInput.style.backgroundColor = 'skyblue';
+        openAnswerInput.style.backgroundColor = '#0288d1'; // Blue
         document.querySelector('.antwoorden').appendChild(openAnswerInput);
     }
 }
@@ -101,19 +102,16 @@ function previousQuestion() {
 
 function showResults(customBackgroundImage) {
     document.body.classList.add('results-background');
-    if (customBackgroundImage) {
-        document.body.classList.add('custom-results-background');
-        document.body.style.backgroundImage = `url('${customBackgroundImage}')`;
-    } else {
-        document.body.classList.remove('custom-results-background');
-        document.body.style.backgroundImage = '';
-    }
+    document.body.classList.remove('custom-results-background');
+    document.body.style.backgroundImage = ''; // Remove the background image
     document.querySelector('.vragen').style.display = 'none';
     document.querySelector('.antwoorden').style.display = 'none';
     document.querySelector('.previousButton').style.display = 'none'; // Hide the previous button
     document.querySelector('.infoButton').style.display = 'block'; // Show the info button
     const resultatenDiv = document.querySelector('.resultaten');
     resultatenDiv.style.display = 'block';
+    resultatenDiv.style.width = '100%'; // Ensure it covers the entire width
+    resultatenDiv.style.height = '100vh'; // Ensure it covers the entire height
     document.querySelector('.score').textContent = `Je hebt ${correctAnswers} van de ${questions.length} vragen goed beantwoord.`;
 
     const multipleChoiceDiv = document.querySelector('.multiple-choice-answers');

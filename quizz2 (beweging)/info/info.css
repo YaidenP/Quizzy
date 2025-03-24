@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e0f7fa; /* Light blue background */
+    background: linear-gradient(120deg, #e0f7fa, #0288d1); /* New gradient background */
 }
 
 .container {
@@ -12,11 +12,11 @@ body {
 }
 
 header {
-    background: darkblue;
+    background: #0277bd; /* Dark blue */
     color: #fff;
     padding-top: 30px;
     min-height: 70px;
-    border-bottom: skyblue 3px solid;
+    border-bottom: #0288d1 3px solid; /* Light blue */
 }
 
 header a {

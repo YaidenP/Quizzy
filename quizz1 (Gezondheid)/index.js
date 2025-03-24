@@ -9,11 +9,11 @@ const questions = [
     { question: "Wat is een goede manier om gehydrateerd te blijven?", answers: ["Veel koffie drinken", "Veel water drinken", "Veel frisdrank drinken"], correct: 1 },
     { question: "Wat is een voordeel van een gezonde voeding?", answers: ["Meer energie", "Gewichtstoename", "Slechtere huid"], correct: 0 },
     { question: "Welke van de volgende is een teken van een goede mentale gezondheid?", answers: ["Chronische stress", "Positieve relaties", "Slaapproblemen"], correct: 1 },
-    { question: "Open Question 1?", answers: [], correct: "Correct Answer 1" },
-    { question: "Open Question 2?", answers: [], correct: "Correct Answer 2" },
-    { question: "Open Question 3?", answers: [], correct: "Correct Answer 3" },
-    { question: "Open Question 4?", answers: [], correct: "Correct Answer 4" },
-    { question: "Open Question 5?", answers: [], correct: "Correct Answer 5" }
+    { question: "Wat zijn de voordelen van een gebalanceerd dieet?", answers: [], correct: "Het voorziet je lichaam van essentiële voedingsstoffen" },
+    { question: "Hoe kan je je immuunsysteem versterken?", answers: [], correct: "Door voldoende slaap, gezonde voeding en regelmatige lichaamsbeweging" },
+    { question: "Wat zijn de symptomen van uitdroging?", answers: [], correct: "Dorst, droge mond, vermoeidheid, en donkere urine" },
+    { question: "Waarom is het belangrijk om stress te beheersen?", answers: [], correct: "Om je mentale en fysieke gezondheid te beschermen" },
+    { question: "Wat zijn de voordelen van regelmatige lichaamsbeweging?", answers: [], correct: "Verbeterde cardiovasculaire gezondheid, sterkere spieren, en beter humeur" }
 ];
 
 let currentQuestionIndex = 0;
@@ -25,7 +25,7 @@ function showQuestion(index) {
     const answersContainer = document.querySelectorAll('.antwoorden button');
     const question = questions[index];
     questionContainer.innerHTML = `<h2>Vraag ${index + 1}: ${question.question}</h2>`;
-    // document.body.style.backgroundImage = 'url("images/gezondheid-background.jpg")'; // Remove the background image setting
+    document.body.style.backgroundImage = ''; // Remove the background image of the entire page
     if (question.answers.length > 0) {
         question.answers.forEach((answer, i) => {
             answersContainer[i].textContent = answer;
@@ -42,7 +42,7 @@ function showQuestion(index) {
         openAnswerInput.style.height = '40px';
         openAnswerInput.style.marginTop = '20px';
         openAnswerInput.style.borderRadius = '15px';
-        openAnswerInput.style.backgroundColor = 'crimson';
+        openAnswerInput.style.backgroundColor = '#b71c1c'; //red
         document.querySelector('.antwoorden').appendChild(openAnswerInput);
     }
 }
@@ -102,19 +102,17 @@ function previousQuestion() {
 
 function showResults(customBackgroundImage) {
     document.body.classList.add('results-background');
-    if (customBackgroundImage) {
-        document.body.classList.add('custom-results-background');
-        document.body.style.backgroundImage = `url('${customBackgroundImage}')`;
-    } else {
-        document.body.classList.remove('custom-results-background');
-        document.body.style.backgroundImage = '';
-    }
+    document.body.classList.remove('custom-results-background');
+    document.body.style.backgroundImage = ''; // Remove the background image
     document.querySelector('.vragen').style.display = 'none';
     document.querySelector('.antwoorden').style.display = 'none';
     document.querySelector('.previousButton').style.display = 'none'; // Hide the previous button
     document.querySelector('.infoButton').style.display = 'block'; // Show the info button
     const resultatenDiv = document.querySelector('.resultaten');
     resultatenDiv.style.display = 'block';
+    resultatenDiv.style.width = '100%'; // Ensure it covers the entire width
+    resultatenDiv.style.minHeight = '100vh'; // Ensure it covers the entire viewport height
+    resultatenDiv.style.height = '100vh'; // Ensure it covers the entire height
     document.querySelector('.score').textContent = `Je hebt ${correctAnswers} van de ${questions.length} vragen goed beantwoord.`;
 
     const multipleChoiceDiv = document.querySelector('.multiple-choice-answers');
