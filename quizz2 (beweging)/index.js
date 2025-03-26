@@ -9,11 +9,11 @@ const questions = [
     { question: "Wat is een goede manier om je hartslag te verhogen?", answers: ["Rustig wandelen", "Hardlopen", "Zitten"], correct: 1 },
     { question: "Wat is een voordeel van buiten sporten?", answers: ["Betere luchtkwaliteit", "Meer vitamine D", "Beide antwoorden zijn correct"], correct: 2 },
     { question: "Welke van de volgende is een goede warming-up oefening?", answers: ["Statische stretching", "Dynamische stretching", "Geen warming-up"], correct: 1 },
-    { question: "Wat is jouw favoriete sport en waarom?", answers: [], correct: "Mijn favoriete sport is hardlopen omdat het me helpt ontspannen en fit te blijven." },
-    { question: "Hoe motiveer je jezelf om te blijven bewegen?", answers: [], correct: "Ik motiveer mezelf door doelen te stellen en mijn voortgang bij te houden." },
-    { question: "Wat zijn de voordelen van een actieve levensstijl?", answers: [], correct: "De voordelen van een actieve levensstijl zijn onder andere een betere gezondheid, meer energie en een verbeterde stemming." },
-    { question: "Hoe combineer je beweging met een drukke agenda?", answers: [], correct: "Ik combineer beweging met een drukke agenda door tijd in te plannen voor workouts en actief te blijven tijdens dagelijkse activiteiten." },
-    { question: "Wat is jouw grootste uitdaging als het gaat om regelmatig bewegen?", answers: [], correct: "Mijn grootste uitdaging is het vinden van de tijd en motivatie om regelmatig te bewegen." }
+    { question: "Wat zijn de voordelen van dagelijks wandelen?", answers: [], correct: "Dagelijks wandelen verbetert de cardiovasculaire gezondheid, verhoogt de stemming en helpt bij gewichtsbeheersing." },
+    { question: "Hoe kun je je flexibiliteit verbeteren?", answers: [], correct: "Je kunt je flexibiliteit verbeteren door regelmatig te stretchen en yoga te beoefenen." },
+    { question: "Wat is het belang van een goede warming-up?", answers: [], correct: "Een goede warming-up bereidt je lichaam voor op inspanning, vermindert het risico op blessures en verbetert de prestaties." },
+    { question: "Hoe kun je beweging integreren in je dagelijkse routine?", answers: [], correct: "Je kunt beweging integreren door de trap te nemen in plaats van de lift, te fietsen naar werk en regelmatig pauzes te nemen om te bewegen." },
+    { question: "Wat zijn de voordelen van krachttraining?", answers: [], correct: "Krachttraining verhoogt de spiermassa, verbetert de botdichtheid en verhoogt de stofwisseling." }
 ];
 
 let currentQuestionIndex = 0;
