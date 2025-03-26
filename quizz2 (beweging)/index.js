@@ -9,11 +9,11 @@ const questions = [
     { question: "Wat is een goede manier om je hartslag te verhogen?", answers: ["Rustig wandelen", "Hardlopen", "Zitten"], correct: 1 },
     { question: "Wat is een voordeel van buiten sporten?", answers: ["Betere luchtkwaliteit", "Meer vitamine D", "Beide antwoorden zijn correct"], correct: 2 },
     { question: "Welke van de volgende is een goede warming-up oefening?", answers: ["Statische stretching", "Dynamische stretching", "Geen warming-up"], correct: 1 },
-    { question: "Open Question 1?", answers: [], correct: "Correct Answer 1" },
-    { question: "Open Question 2?", answers: [], correct: "Correct Answer 2" },
-    { question: "Open Question 3?", answers: [], correct: "Correct Answer 3" },
-    { question: "Open Question 4?", answers: [], correct: "Correct Answer 4" },
-    { question: "Open Question 5?", answers: [], correct: "Correct Answer 5" }
+    { question: "Wat is jouw favoriete sport en waarom?", answers: [], correct: "Mijn favoriete sport is hardlopen omdat het me helpt ontspannen en fit te blijven." },
+    { question: "Hoe motiveer je jezelf om te blijven bewegen?", answers: [], correct: "Ik motiveer mezelf door doelen te stellen en mijn voortgang bij te houden." },
+    { question: "Wat zijn de voordelen van een actieve levensstijl?", answers: [], correct: "De voordelen van een actieve levensstijl zijn onder andere een betere gezondheid, meer energie en een verbeterde stemming." },
+    { question: "Hoe combineer je beweging met een drukke agenda?", answers: [], correct: "Ik combineer beweging met een drukke agenda door tijd in te plannen voor workouts en actief te blijven tijdens dagelijkse activiteiten." },
+    { question: "Wat is jouw grootste uitdaging als het gaat om regelmatig bewegen?", answers: [], correct: "Mijn grootste uitdaging is het vinden van de tijd en motivatie om regelmatig te bewegen." }
 ];
 
 let currentQuestionIndex = 0;
