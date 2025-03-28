@@ -52,6 +52,7 @@ const questions = [
     {
         question: "Wat is jouw favoriete manier om te ontspannen?",
         type: "open",
+        correct: null
     },
     {
         question: "Hoe zorg jij ervoor dat je voldoende beweegt op een dag?",
@@ -196,10 +197,10 @@ function showResults() {
     answersReview.innerHTML = answers.map((answer, index) => `
         <div class="review-item">
             <p class="review-question">Vraag ${index + 1}: ${answer.question}</p>
-            <p class="review-answer ${answer.selected === answer.correct ? 'correct' : 'incorrect'}">
+            <p class="review-answer ${answer.correct !== null && answer.selected === answer.correct ? 'correct' : 'incorrect'}">
                 Jouw antwoord: ${answer.selected}
             </p>
-            ${answer.selected !== answer.correct ? 
+            ${answer.correct !== null && answer.selected !== answer.correct ? 
                 `<p class="review-answer correct">Correct antwoord: ${answer.correct}</p>` : 
                 ''}
         </div>
