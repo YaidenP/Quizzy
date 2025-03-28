@@ -1,162 +1,221 @@
 const questions = [
-    { question: "Waarom is het belangrijk om regelmatig een arts te bezoeken?", answers: ["Om ziektes vroegtijdig te ontdekken", "Om medicijnen te krijgen", "Om je gewicht te controleren"], correct: 0 },
-    { question: "Welke van de volgende is een gezonde gewoonte?", answers: ["Roken", "Dagelijks sporten", "Veel suiker eten"], correct: 1 },
-    { question: "Hoeveel uur slaap heb je gemiddeld per nacht nodig?", answers: ["4-5 uur", "6-7 uur", "7-9 uur"], correct: 2 },
-    { question: "Wat is een goede manier om stress te verminderen?", answers: ["Alcohol drinken", "Meditatie", "Langdurig werken"], correct: 1 },
-    { question: "Welke van de volgende voedingsmiddelen is goed voor je hart?", answers: ["Gefrituurd eten", "Groenten en fruit", "Suikerrijke snacks"], correct: 1 },
-    { question: "Wat is een voordeel van regelmatig handen wassen?", answers: ["Het voorkomt infecties", "Het maakt je huid droog", "Het vermindert jeuk"], correct: 0 },
-    { question: "Hoe vaak moet je je tanden poetsen?", answers: ["Een keer per dag", "Twee keer per dag", "Een keer per week"], correct: 1 },
-    { question: "Wat is een goede manier om gehydrateerd te blijven?", answers: ["Veel koffie drinken", "Veel water drinken", "Veel frisdrank drinken"], correct: 1 },
-    { question: "Wat is een voordeel van een gezonde voeding?", answers: ["Meer energie", "Gewichtstoename", "Slechtere huid"], correct: 0 },
-    { question: "Welke van de volgende is een teken van een goede mentale gezondheid?", answers: ["Chronische stress", "Positieve relaties", "Slaapproblemen"], correct: 1 },
-    { question: "Wat zijn de voordelen van een gebalanceerd dieet?", answers: [], correct: "Het voorziet je lichaam van essentiële voedingsstoffen" },
-    { question: "Hoe kan je je immuunsysteem versterken?", answers: [], correct: "Door voldoende slaap, gezonde voeding en regelmatige lichaamsbeweging" },
-    { question: "Wat zijn de symptomen van uitdroging?", answers: [], correct: "Dorst, droge mond, vermoeidheid, en donkere urine" },
-    { question: "Waarom is het belangrijk om stress te beheersen?", answers: [], correct: "Om je mentale en fysieke gezondheid te beschermen" },
-    { question: "Wat zijn de voordelen van regelmatige lichaamsbeweging?", answers: [], correct: "Verbeterde cardiovasculaire gezondheid, sterkere spieren, en beter humeur" }
+    {
+        question: "Waarom is het belangrijk om een gezond ontbijt te eten?",
+        answers: ["Omdat je dan sneller afvalt", "Omdat je dan geen honger hebt voor de lunch", "Omdat het je energie geeft voor de rest van de dag"],
+        correct: 2
+    },
+    {
+        question: "Welke snack is het beste voor een boost van energie tijdens het studeren?",
+        answers: ["Een zak chips", "Een appel met pindakaas", "Een frisdrank"],
+        correct: 1
+    },
+    {
+        question: "Hoeveel glazen water wordt aanbevolen om dagelijks te drinken?",
+        answers: ["4-6 glazen", "6-8 glazen", "8-10 glazen"],
+        correct: 2
+    },
+    {
+        question: "Welke van de volgende is een goede bron van eiwitten?",
+        answers: ["Broccoli", "Kipfilet", "Witte rijst"],
+        correct: 1
+    },
+    {
+        question: "Wat is een gezond alternatief voor suiker in thee of koffie?",
+        answers: ["Honing", "Kunstmatige zoetstoffen", "Geen van beide"],
+        correct: 0
+    },
+    {
+        question: "Welke oefening is het beste voor cardiovasculaire gezondheid?",
+        answers: ["Yoga", "Hardlopen", "Krachttraining"],
+        correct: 1
+    },
+    {
+        question: "Wat is een belangrijk voordeel van voldoende slaap?",
+        answers: ["Gewichtsverlies", "Betere concentratie", "Meer spiermassa"],
+        correct: 1
+    },
+    {
+        question: "Welke van de volgende voedingsmiddelen bevat gezonde vetten?",
+        answers: ["Avocado", "Chocolade", "Franse frietjes"],
+        correct: 0
+    },
+    {
+        question: "Wat is een goede manier om stress te verminderen?",
+        answers: ["Social media gebruiken", "Meditatie", "Meer koffie drinken"],
+        correct: 1
+    },
+    {
+        question: "Welke vitamine krijg je voornamelijk van zonlicht?",
+        answers: ["Vitamine A", "Vitamine C", "Vitamine D"],
+        correct: 2
+    },
+    {
+        question: "Wat is jouw favoriete manier om actief te blijven?",
+        type: "open",
+        correct: null
+    },
+    {
+        question: "Hoe zorg jij ervoor dat je voldoende water drinkt?",
+        type: "open",
+        correct: null
+    },
+    {
+        question: "Wat is jouw favoriete gezonde snack?",
+        type: "open",
+        correct: null
+    },
+    {
+        question: "Hoe plan jij je maaltijden om gezond te blijven?",
+        type: "open",
+        correct: null
+    },
+    {
+        question: "Wat is jouw favoriete gezonde maaltijd?",
+        type: "open",
+        correct: null // Open questions don't have a predefined correct answer
+    }
 ];
 
 let currentQuestionIndex = 0;
 let correctAnswers = 0;
-let incorrectAnswers = [];
+let answers = [];
+
+// Initialize Lucide icons
+lucide.createIcons();
+
+// DOM Elements
+const questionText = document.querySelector('.question-text');
+const answerButtons = document.querySelectorAll('.answer-btn');
+const previousButton = document.querySelector('.previous-btn');
+const quizContainer = document.querySelector('.quiz-container');
+const resultsContainer = document.querySelector('.results-container');
+const infoButton = document.querySelector('.info-btn');
+const scoreText = document.querySelector('.score-text');
+const answersReview = document.querySelector('.answers-review');
 
 function showQuestion(index) {
-    const questionContainer = document.querySelector('.vragen');
-    const answersContainer = document.querySelectorAll('.antwoorden button');
     const question = questions[index];
-    questionContainer.innerHTML = `<h2>Vraag ${index + 1}: ${question.question}</h2>`;
-    document.body.style.background = 'linear-gradient(135deg, #f4b6b8 25%, #f08b8d 25%, #f08b8d 50%, #f4b6b8 50%, #f4b6b8 75%, #f08b8d 75%, #f08b8d)';
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundAttachment = 'fixed';
-    document.body.style.backgroundPosition = 'center';
-    if (question.answers.length > 0) {
-        question.answers.forEach((answer, i) => {
-            answersContainer[i].textContent = answer;
-            answersContainer[i].style.display = 'block';
-            answersContainer[i].classList.add('answer-button'); // Add class for styling
-        });
-    } else {
-        answersContainer.forEach(button => button.style.display = 'none');
+    questionText.textContent = `Vraag ${index + 1}: ${question.question}`;
+    
+    if (question.type === "open") {
+        // Hide answer buttons and show an input field for open-ended questions
+        answerButtons.forEach(button => button.style.display = 'none');
         const openAnswerInput = document.createElement('input');
         openAnswerInput.type = 'text';
-        openAnswerInput.className = 'open-answer';
-        openAnswerInput.placeholder = 'Voer hier je antwoord in';
-        openAnswerInput.style.width = '60%';
-        openAnswerInput.style.height = '40px';
-        openAnswerInput.style.marginTop = '20px';
-        openAnswerInput.style.borderRadius = '15px';
-        openAnswerInput.style.backgroundColor = '#b71c1c'; //red
-        document.querySelector('.antwoorden').appendChild(openAnswerInput);
+        openAnswerInput.className = 'open-answer-input';
+        openAnswerInput.placeholder = 'Typ je antwoord hier...';
+        questionText.parentElement.appendChild(openAnswerInput);
+
+        const submitButton = document.createElement('button');
+        submitButton.textContent = 'Indienen';
+        submitButton.className = 'btn submit-btn';
+        questionText.parentElement.appendChild(submitButton);
+
+        submitButton.addEventListener('click', () => {
+            handleOpenAnswer(openAnswerInput.value);
+            openAnswerInput.remove();
+            submitButton.remove();
+        });
+    } else {
+        question.answers.forEach((answer, i) => {
+            answerButtons[i].style.display = 'block';
+            answerButtons[i].textContent = answer;
+        });
     }
+
+    previousButton.disabled = index === 0;
 }
 
-function nextQuestion(selectedAnswerIndex = null) {
-    const openAnswerInput = document.querySelector('.open-answer');
-    if (openAnswerInput && openAnswerInput.value.trim() === '') {
-        alert('Please provide an answer before proceeding.');
-        return;
+function handleAnswer(selectedIndex) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = selectedIndex === currentQuestion.correct;
+    
+    if (isCorrect) {
+        correctAnswers++;
     }
 
-    if (selectedAnswerIndex !== null) {
-        if (selectedAnswerIndex === questions[currentQuestionIndex].correct) {
-            correctAnswers++;
-        }
-        incorrectAnswers.push({
-            question: questions[currentQuestionIndex].question,
-            selected: questions[currentQuestionIndex].answers[selectedAnswerIndex],
-            correct: questions[currentQuestionIndex].answers[questions[currentQuestionIndex].correct],
-            type: 'multiple-choice'
-        });
-    } else if (openAnswerInput) {
-        const userAnswer = openAnswerInput.value.trim();
-        if (userAnswer.toLowerCase() === questions[currentQuestionIndex].correct.toLowerCase()) {
-            correctAnswers++;
-        }
-        incorrectAnswers.push({
-            question: questions[currentQuestionIndex].question,
-            selected: userAnswer,
-            correct: questions[currentQuestionIndex].correct,
-            type: 'open'
-        });
-    }
+    // Zorg ervoor dat het geselecteerde antwoord en het correcte antwoord correct worden opgeslagen
+    answers.push({
+        question: currentQuestion.question,
+        selected: currentQuestion.answers[selectedIndex],
+        correct: currentQuestion.answers[currentQuestion.correct]
+    });
 
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        document.querySelector('.open-answer')?.remove(); // Remove the open answer input if it exists
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
         showQuestion(currentQuestionIndex);
     } else {
         showResults();
     }
 }
 
-function previousQuestion() {
+function handleOpenAnswer(answer) {
+    const currentQuestion = questions[currentQuestionIndex];
+    answers.push({
+        question: currentQuestion.question,
+        selected: answer,
+        correct: null // No predefined correct answer for open questions
+    });
+
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(currentQuestionIndex);
+    } else {
+        showResults();
+    }
+}
+
+function handlePrevious() {
     if (currentQuestionIndex > 0) {
-        // Remove the last recorded answer if it exists
-        if (incorrectAnswers.length > 0 && incorrectAnswers[incorrectAnswers.length - 1].question === questions[currentQuestionIndex - 1].question) {
-            incorrectAnswers.pop();
-        } else if (correctAnswers > 0) {
+        currentQuestionIndex--;
+        const lastAnswer = answers.pop();
+        if (lastAnswer.selected === lastAnswer.correct) {
             correctAnswers--;
         }
-        currentQuestionIndex--;
-        document.querySelector('.open-answer')?.remove(); // Remove the open answer input if it exists
         showQuestion(currentQuestionIndex);
     }
 }
 
-function showResults(customBackgroundImage) {
-    document.body.classList.add('results-background');
-    document.body.classList.remove('custom-results-background');
-    document.body.style.background = 'linear-gradient(135deg, #f4b6b8 25%, #f08b8d 25%, #f08b8d 50%, #f4b6b8 50%, #f4b6b8 75%, #f08b8d 75%, #f08b8d)';
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundAttachment = 'fixed';
-    document.body.style.backgroundPosition = 'center';
-    document.querySelector('.vragen').style.display = 'none';
-    document.querySelector('.antwoorden').style.display = 'none';
-    document.querySelector('.previousButton').style.display = 'none'; // Hide the previous button
-    document.querySelector('.infoButton').style.display = 'block'; // Show the info button
-    const resultatenDiv = document.querySelector('.resultaten');
-    resultatenDiv.style.display = 'block';
-    resultatenDiv.style.width = '100%'; // Ensure it covers the entire width
-    resultatenDiv.style.minHeight = '100vh'; // Ensure it covers the entire viewport height
-    resultatenDiv.style.height = '100vh'; // Ensure it covers the entire height
-    document.querySelector('.score').textContent = `Je hebt ${correctAnswers} van de ${questions.length} vragen goed beantwoord.`;
+function showResults() {
+    // Zorg ervoor dat de resultatencontainer zichtbaar wordt
+    quizContainer.style.display = 'none';
+    resultsContainer.style.display = 'block';
+    infoButton.style.display = 'flex';
+    previousButton.style.display = 'none';
 
-    const multipleChoiceDiv = document.querySelector('.multiple-choice-answers');
-    const openAnswersDiv = document.querySelector('.open-answers');
-    multipleChoiceDiv.innerHTML = '<h3>Keuze vragen:</h3>';
-    openAnswersDiv.innerHTML = '<h3>Open vragen:</h3>';
+    // Debug: Controleer of de score correct wordt berekend
+    console.log('Correct answers:', correctAnswers);
+    console.log('Total questions:', questions.length);
 
-    questions.forEach((question, index) => {
-        const questionDiv = document.createElement('div');
-        const userAnswer = incorrectAnswers.find(item => item.question === question.question)?.selected || questions[index].answers.length > 0 ? questions[index].answers[questions[index].correct] : questions[index].correct;
-        const correctAnswer = question.answers.length > 0 ? question.answers[question.correct] : question.correct;
-        questionDiv.innerHTML = `<p>Vraag ${index + 1}: ${question.question}</p><p>Jouw antwoord: ${userAnswer}</p><p>Correct antwoord: ${correctAnswer}</p>`;
-        if (question.answers.length > 0) {
-            multipleChoiceDiv.appendChild(questionDiv);
-        } else {
-            openAnswersDiv.appendChild(questionDiv);
-        }
-    });
+    // Toon de score correct
+    scoreText.textContent = `Je hebt ${correctAnswers} van de ${questions.length} vragen goed beantwoord.`;
+
+    // Debug: Controleer of de antwoorden correct in de array zitten
+    console.log('Answers array:', answers);
+
+    // Zorg ervoor dat de antwoorden correct worden weergegeven
+    answersReview.innerHTML = answers.map((answer, index) => `
+        <div class="review-item">
+            <p class="review-question">Vraag ${index + 1}: ${answer.question}</p>
+            <p class="review-answer ${answer.selected === answer.correct ? 'correct' : 'incorrect'}">
+                Jouw antwoord: ${answer.selected}
+            </p>
+            ${answer.selected !== answer.correct ? 
+                `<p class="review-answer correct">Correct antwoord: ${answer.correct}</p>` : 
+                ''}
+        </div>
+    `).join('');
+
+    // Debug: Controleer of de innerHTML correct wordt gegenereerd
+    console.log('Generated HTML for answersReview:', answersReview.innerHTML);
 }
 
-function hideResults() {
-    document.body.classList.remove('results-background', 'custom-results-background');
-    document.body.style.backgroundImage = '';
-    // ...existing code to hide results...
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    showQuestion(currentQuestionIndex);
-    document.querySelectorAll('.antwoorden button').forEach((button, index) => {
-        button.addEventListener('click', () => {
-            nextQuestion(index);
-        });
-        button.classList.add('answer-button'); // Add class for styling
-    });
-    document.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && document.querySelector('.open-answer')) {
-            nextQuestion();
-        }
-    });
-    document.querySelector('.previousButton').addEventListener('click', previousQuestion);
+// Event Listeners
+answerButtons.forEach((button, index) => {
+    button.addEventListener('click', () => handleAnswer(index));
 });
+
+previousButton.addEventListener('click', handlePrevious);
+
+// Initialize first question
+showQuestion(currentQuestionIndex);

@@ -161,3 +161,28 @@ h1 {
 .review-answer.incorrect {
     color: #dc2626;
 }
+
+.open-answer-input {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    margin-top: 1rem;
+    background-color: rgba(6, 95, 70, 0.9);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: rgba(4, 120, 87, 0.9);
+    transform: scale(1.05);
+}

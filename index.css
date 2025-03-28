@@ -13,6 +13,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     color: white;
+    overflow: hidden;
 }
 
 .background-overlay {
@@ -54,6 +55,26 @@ body {
     width: 100px;
     height: 3px;
     background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+.info-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.info-button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
 }
 
 .button-container {

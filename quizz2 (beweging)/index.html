@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Vesper+Libre:wght@400;500;700;900&display=swap');
-        </style>
+    <title>Beweging Quiz</title>
     <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
-    <title>Beweging</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
 <body>
-    <div class="header">
-        <a href="../index.html"><button class="hButton">Home</button></a>
-        <h1>Beweging</h1>
-        <button class="previousButton">Vorige</button>
-        <a href="info/info.html"><button class="infoButton" style="display: none;">Info</button></a>
-    </div>
-    <div class="vragen">
-        <div class="question-background"></div>
-    </div>
-    <div class="antwoorden">
-        <button class="ant1"></button>
-        <button class="ant2"></button>
-        <button class="ant3"></button>
-    </div>
-    <div class="resultaten" style="display: none;">
-        <h2>Je resultaten</h2>
-        <p class="score"></p>
-        <div class="incorrect-answers">
-            <div class="multiple-choice-answers"></div>
-            <div class="open-answers"></div>
+    <div class="app">
+        <header>
+            <div class="header-buttons-left">
+                <a href="../index.html"><button class="btn home-btn">
+                    <i data-lucide="home"></i>
+                    Home
+                </button></a>
+            </div>
+            <h1>Beweging Quiz</h1>
+            <button class="btn previous-btn">
+                <i data-lucide="chevron-left"></i>
+                Vorige
+            </button>
+        </header>
+
+        <div class="quiz-container">
+            <div class="question-card">
+                <h2 class="question-text"></h2>
+            </div>
+            
+            <div class="answers-grid">
+                <button class="answer-btn"></button>
+                <button class="answer-btn"></button>
+                <button class="answer-btn"></button>
+            </div>
+        </div>
+
+        <div class="results-container" style="display: none;">
+            <div class="results-card">
+                <h2>Je resultaten</h2>
+                <p class="score-text"></p>
+                <div class="answers-review"></div>
+                <a href="index.html"><button class="btn info-btn" style="display: none;">Speel Opnieuw</button></a>
+            </div>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
-
 </html>
