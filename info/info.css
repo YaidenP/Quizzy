@@ -1,0 +1,230 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0; /* Light gray text */
+    background-color: #1c1c1c; /* Dark gray background */
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%); /* Dark gray gradient */
+    color: #e0e0e0; /* Light gray text */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+header .back-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #2a2a2a; /* Blauw */
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .back-button:hover {
+    background-color: #3a3a3a; /* Donkerder blauw */
+}
+
+/* Category sections */
+.category-section {
+    max-width: 1200px;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+}
+
+.category-title {
+    font-size: 2.5rem;
+    color: #e0e0e0; /* Light gray text */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.category-content {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.category-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.category-image {
+    flex: 1;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.category-image:hover img {
+    transform: scale(1.05);
+}
+
+.category-info {
+    flex: 1;
+}
+
+.category-info h3 {
+    font-size: 1.8rem;
+    color: #e0e0e0; /* Light gray text */
+    margin-bottom: 1.5rem;
+}
+
+.info-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.info-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.info-list li::before {
+    content: "•";
+    color: #ffffff;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -0.2rem;
+}
+
+/* Exercise schedule */
+.exercise-schedule, .nutrition-tips {
+    background: #2a2a2a; /* Dark gray background */
+    color: #e0e0e0; /* Light gray text */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-schedule h4, .nutrition-tips h4 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.schedule-grid, .nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.schedule-item, .nutrition-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9ff;
+    border-radius: 0.5rem;
+}
+
+.day, .category {
+    display: block;
+    font-weight: bold;
+    color: #2a2a2a;
+    margin-bottom: 0.5rem;
+}
+
+.activity, .amount {
+    display: block;
+    color: #666;
+}
+
+/* Quote section */
+.quote {
+    background: #2a2a2a; /* Dark gray background */
+    color: #e0e0e0; /* Light gray text */
+    padding: 4rem 2rem;
+    text-align: center;
+    margin: 4rem 0;
+}
+
+blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #1a1a1a; /* Darker gray background */
+    color: #e0e0e0; /* Light gray text */
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .category-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .category-content.reverse {
+        flex-direction: column;
+    }
+
+    .category-image img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .category-title {
+        font-size: 2rem;
+    }
+
+    .category-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .schedule-grid, .nutrition-grid {
+        grid-template-columns: 1fr;
+    }
+
+    blockquote {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-section {
+        padding: 0 1rem;
+    }
+
+    .info-list li {
+        font-size: 0.9rem;
+    }
+}

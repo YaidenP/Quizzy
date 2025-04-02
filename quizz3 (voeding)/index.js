@@ -72,150 +72,153 @@ const questions = [
     {
         question: "Wat is jouw favoriete gezonde maaltijd?",
         type: "open",
-        correct: null // Open questions don't have a predefined correct answer
+        correct: null  
     }
 ];
 
-let currentQuestionIndex = 0;
-let correctAnswers = 0;
-let answers = [];
-
-// Initialize Lucide icons
-lucide.createIcons();
-
-// DOM Elements
-const questionText = document.querySelector('.question-text');
-const answerButtons = document.querySelectorAll('.answer-btn');
-const previousButton = document.querySelector('.previous-btn');
-const quizContainer = document.querySelector('.quiz-container');
-const resultsContainer = document.querySelector('.results-container');
-const infoButton = document.querySelector('.info-btn');
-const scoreText = document.querySelector('.score-text');
-const answersReview = document.querySelector('.answers-review');
-
-function showQuestion(index) {
-    const question = questions[index];
-    questionText.textContent = `Vraag ${index + 1}: ${question.question}`;
+document.addEventListener('DOMContentLoaded', () => {
     
-    if (question.type === "open") {
-        // Hide answer buttons and show an input field for open-ended questions
-        answerButtons.forEach(button => button.style.display = 'none');
-        const openAnswerInput = document.createElement('input');
-        openAnswerInput.type = 'text';
-        openAnswerInput.className = 'open-answer-input';
-        openAnswerInput.placeholder = 'Typ je antwoord hier...';
-        questionText.parentElement.appendChild(openAnswerInput);
 
-        const submitButton = document.createElement('button');
-        submitButton.textContent = 'Indienen';
-        submitButton.className = 'btn submit-btn';
-        questionText.parentElement.appendChild(submitButton);
+    // DOM Elements
+    const questionText = document.querySelector('.question-text');
+    const answerButtons = document.querySelectorAll('.answer-btn');
+    const previousButton = document.querySelector('.previous-btn');
+    const quizContainer = document.querySelector('.quiz-container');
+    const resultsContainer = document.querySelector('.results-container');
+    const infoButton = document.querySelector('.info-btn');
+    const scoreText = document.querySelector('.score-text');
+    const answersReview = document.querySelector('.answers-review');
 
-        submitButton.addEventListener('click', () => {
-            handleOpenAnswer(openAnswerInput.value);
-            openAnswerInput.remove();
-            submitButton.remove();
-        });
-    } else {
-        question.answers.forEach((answer, i) => {
-            answerButtons[i].style.display = 'block';
-            answerButtons[i].textContent = answer;
-        });
-    }
+    let currentQuestionIndex = 0;
+    let correctAnswers = 0;
+    let answers = [];
 
-    previousButton.disabled = index === 0;
-}
+    function showQuestion(index) {
+        const question = questions[index];
+        questionText.textContent = `Vraag ${index + 1}: ${question.question}`;
+        
+        // Remove any existing input fields or buttons
+        const existingInput = document.querySelector('.open-answer-input');
+        const existingSubmitButton = document.querySelector('.submit-btn');
+        if (existingInput) existingInput.remove();
+        if (existingSubmitButton) existingSubmitButton.remove();
 
-function handleAnswer(selectedIndex) {
-    const currentQuestion = questions[currentQuestionIndex];
-    const isCorrect = selectedIndex === currentQuestion.correct;
-    
-    if (isCorrect) {
-        correctAnswers++;
-    }
+        if (question.type === "open") {
+            // Hide answer buttons and show an input field
+            answerButtons.forEach(button => button.style.display = 'none');
+            const openAnswerInput = document.createElement('input');
+            openAnswerInput.type = 'text';
+            openAnswerInput.className = 'open-answer-input';
+            openAnswerInput.placeholder = 'Typ je antwoord hier...';
+            questionText.parentElement.appendChild(openAnswerInput);
 
-    // Zorg ervoor dat het geselecteerde antwoord en het correcte antwoord correct worden opgeslagen
-    answers.push({
-        question: currentQuestion.question,
-        selected: currentQuestion.answers[selectedIndex],
-        correct: currentQuestion.answers[currentQuestion.correct]
-    });
+            const submitButton = document.createElement('button');
+            submitButton.textContent = 'Indienen';
+            submitButton.className = 'btn submit-btn';
+            questionText.parentElement.appendChild(submitButton);
 
-    if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
-        showQuestion(currentQuestionIndex);
-    } else {
-        showResults();
-    }
-}
-
-function handleOpenAnswer(answer) {
-    const currentQuestion = questions[currentQuestionIndex];
-    answers.push({
-        question: currentQuestion.question,
-        selected: answer,
-        correct: null // No predefined correct answer for open questions
-    });
-
-    if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
-        showQuestion(currentQuestionIndex);
-    } else {
-        showResults();
-    }
-}
-
-function handlePrevious() {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        const lastAnswer = answers.pop();
-        if (lastAnswer.selected === lastAnswer.correct) {
-            correctAnswers--;
+            submitButton.addEventListener('click', () => {
+                if (openAnswerInput.value.trim() !== '') {
+                    handleOpenAnswer(openAnswerInput.value);
+                    openAnswerInput.remove();
+                    submitButton.remove();
+                } else {
+                    alert('Vul een antwoord in voordat je verder gaat.');
+                }
+            });
+        } else {
+            // Reset buttons and display answers
+            answerButtons.forEach((button, i) => {
+                if (i < question.answers.length) {
+                    button.style.display = 'block';
+                    button.textContent = question.answers[i];
+                } else {
+                    button.style.display = 'none';
+                }
+            });
         }
-        showQuestion(currentQuestionIndex);
+
+        // Ensure the previous button is disabled for the first question
+        previousButton.disabled = index === 0;
     }
-}
 
-function showResults() {
-    // Zorg ervoor dat de resultatencontainer zichtbaar wordt
-    quizContainer.style.display = 'none';
-    resultsContainer.style.display = 'block';
-    infoButton.style.display = 'flex';
-    previousButton.style.display = 'none';
+    function handleAnswer(selectedIndex) {
+        const currentQuestion = questions[currentQuestionIndex];
+        const isCorrect = selectedIndex === currentQuestion.correct;
+        
+        if (isCorrect) {
+            correctAnswers++;
+        }
 
-    // Debug: Controleer of de score correct wordt berekend
-    console.log('Correct answers:', correctAnswers);
-    console.log('Total questions:', questions.length);
+        answers.push({
+            question: currentQuestion.question,
+            selected: currentQuestion.answers[selectedIndex],
+            correct: currentQuestion.answers[currentQuestion.correct]
+        });
 
-    // Toon de score correct
-    scoreText.textContent = `Je hebt ${correctAnswers} van de ${questions.length} vragen goed beantwoord.`;
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion(currentQuestionIndex);
+        } else {
+            showResults();
+        }
+    }
 
-    // Debug: Controleer of de antwoorden correct in de array zitten
-    console.log('Answers array:', answers);
+    function handleOpenAnswer(answer) {
+        const currentQuestion = questions[currentQuestionIndex];
+        answers.push({
+            question: currentQuestion.question,
+            selected: answer,
+            correct: null
+        });
 
-    // Zorg ervoor dat de antwoorden correct worden weergegeven
-    answersReview.innerHTML = answers.map((answer, index) => `
-        <div class="review-item">
-            <p class="review-question">Vraag ${index + 1}: ${answer.question}</p>
-            <p class="review-answer ${answer.correct !== null && answer.selected === answer.correct ? 'correct' : 'incorrect'}">
-                Jouw antwoord: ${answer.selected}
-            </p>
-            ${answer.correct !== null && answer.selected !== answer.correct ? 
-                `<p class="review-answer correct">Correct antwoord: ${answer.correct}</p>` : 
-                ''}
-        </div>
-    `).join('');
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion(currentQuestionIndex);
+        } else {
+            showResults();
+        }
+    }
 
-    // Debug: Controleer of de innerHTML correct wordt gegenereerd
-    console.log('Generated HTML for answersReview:', answersReview.innerHTML);
-}
+    function handlePrevious() {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            const lastAnswer = answers.pop();
+            if (lastAnswer.selected === lastAnswer.correct) {
+                correctAnswers--;
+            }
+            showQuestion(currentQuestionIndex);
+        }
+    }
 
-// Event Listeners
-answerButtons.forEach((button, index) => {
-    button.addEventListener('click', () => handleAnswer(index));
+    function showResults() {
+        quizContainer.style.display = 'none';
+        resultsContainer.style.display = 'block';
+        infoButton.style.display = 'flex';
+        previousButton.style.display = 'none';
+
+        scoreText.textContent = `Je hebt ${correctAnswers} van de ${questions.length} vragen goed beantwoord.`;
+
+        answersReview.innerHTML = answers.map((answer, index) => `
+            <div class="review-item">
+                <p class="review-question">Vraag ${index + 1}: ${answer.question}</p>
+                <p class="review-answer ${answer.correct !== null && answer.selected === answer.correct ? 'correct' : 'incorrect'}">
+                    Jouw antwoord: ${answer.selected}
+                </p>
+                ${answer.correct !== null && answer.selected !== answer.correct ? 
+                    `<p class="review-answer correct">Correct antwoord: ${answer.correct}</p>` : 
+                    ''}
+            </div>
+        `).join('');
+    }
+
+    // Event Listeners
+    answerButtons.forEach((button, index) => {
+        button.addEventListener('click', () => handleAnswer(index));
+    });
+
+    previousButton.addEventListener('click', handlePrevious);
+
+    // Initialize first question
+    showQuestion(currentQuestionIndex);
 });
-
-previousButton.addEventListener('click', handlePrevious);
-
-// Initialize first question
-showQuestion(currentQuestionIndex);
