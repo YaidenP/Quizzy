@@ -1,78 +1,78 @@
 const questions = [
     {
-        question: "Waarom is het belangrijk om een gezond ontbijt te eten?",
-        answers: ["Omdat je dan sneller afvalt", "Omdat je dan geen honger hebt voor de lunch", "Omdat het je energie geeft voor de rest van de dag"],
+        question: "Waarom is het belangrijk om regelmatig te bewegen?",
+        answers: ["Om spieren te versterken", "Om meer te kunnen eten", "Om minder te slapen"],
+        correct: 0
+    },
+    {
+        question: "Welke activiteit is een vorm van cardio?",
+        answers: ["Hardlopen", "Bankdrukken", "Yoga"],
+        correct: 0
+    },
+    {
+        question: "Wat is een goede warming-up voor het sporten?",
+        answers: ["Statische stretches", "Lichte joggen", "Direct zware gewichten tillen"],
+        correct: 1
+    },
+    {
+        question: "Welke sport verbetert je flexibiliteit het meest?",
+        answers: ["Voetbal", "Basketbal", "Yoga"],
         correct: 2
     },
     {
-        question: "Welke snack is het beste voor een boost van energie tijdens het studeren?",
-        answers: ["Een zak chips", "Een appel met pindakaas", "Een frisdrank"],
+        question: "Wat is een gezonde manier om spierpijn te verminderen?",
+        answers: ["Rust en lichte beweging", "Meer trainen", "Niets doen"],
+        correct: 0
+    },
+    {
+        question: "Hoeveel minuten beweging per dag wordt aanbevolen voor volwassenen?",
+        answers: ["10 minuten", "30 minuten", "60 minuten"],
         correct: 1
     },
     {
-        question: "Wat is een goede bron van eiwitten?",
-        answers: ["Brood", "Kip", "Chocolade"],
+        question: "Welke oefening is goed voor je core?",
+        answers: ["Plank", "Squat", "Push-up"],
+        correct: 0
+    },
+    {
+        question: "Wat is een voordeel van buiten sporten?",
+        answers: ["Meer zuurstof", "Minder calorieën verbranden", "Minder motivatie nodig"],
+        correct: 0
+    },
+    {
+        question: "Welke sport is een combinatie van kracht en cardio?",
+        answers: ["CrossFit", "Schaken", "Golf"],
+        correct: 0
+    },
+    {
+        question: "Welke dansstijl is het meest intensief?",
+        answers: ["Ballet", "Zumba", "Wals"],
         correct: 1
     },
     {
-        question: "Welke drank hydrateert het beste?",
-        answers: ["Water", "Koffie", "Frisdrank"],
-        correct: 0
-    },
-    {
-        question: "Wat is een gezond alternatief voor suiker in thee?",
-        answers: ["Honing", "Room", "Chocoladesiroop"],
-        correct: 0
-    },
-    {
-        question: "Welke groente bevat veel vitamine C?",
-        answers: ["Paprika", "Aardappel", "Komkommer"],
-        correct: 0
-    },
-    {
-        question: "Wat is een voorbeeld van een gezonde vetbron?",
-        answers: ["Avocado", "Boter", "Spek"],
-        correct: 0
-    },
-    {
-        question: "Welke maaltijd is het belangrijkst op een dag?",
-        answers: ["Ontbijt", "Lunch", "Diner"],
-        correct: 0
-    },
-    {
-        question: "Wat is een goede snack voor na het sporten?",
-        answers: ["Proteïneshake", "Chips", "IJs"],
-        correct: 0
-    },
-    {
-        question: "Welke vissoort is rijk aan omega-3 vetzuren?",
-        answers: ["Zalm", "Kabeljauw", "Tilapia"],
-        correct: 0
-    },
-    {
-        question: "Wat is jouw favoriete gezonde snack?",
+        question: "Wat is jouw favoriete manier van bewegen?",
         type: "open",
         correct: null
     },
     {
-        question: "Hoe zorg jij ervoor dat je genoeg water drinkt?",
+        question: "Hoe zorg jij ervoor dat je genoeg beweegt op een dag?",
         type: "open",
         correct: null
     },
     {
-        question: "Wat is jouw favoriete manier om groenten te bereiden?",
+        question: "Wat is jouw favoriete sport of activiteit?",
         type: "open",
         correct: null
     },
     {
-        question: "Welke gezonde gewoonte wil je nog aanleren?",
+        question: "Welke nieuwe sport zou je willen proberen?",
         type: "open",
         correct: null
     },
     {
-        question: "Wat is jouw favoriete gezonde maaltijd?",
+        question: "Wat motiveert jou om te blijven bewegen?",
         type: "open",
-        correct: null // Open questions don't have a predefined correct answer
+        correct: null
     }
 ];
 
